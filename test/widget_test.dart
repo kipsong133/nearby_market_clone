@@ -27,4 +27,31 @@ void main() {
     expect(find.text('0'), findsNothing);
     expect(find.text('1'), findsOneWidget);
   });
+
+  test('Future Tutorial', () {
+    Future<String> NowWeather() {
+      return Future.delayed(
+        Duration(seconds: 1),
+        () {
+          return '날씨 정보' * 20;
+        },
+      )
+      ;
+    }
+
+    void printLunchTime() {
+      print('점심시간₩!');
+    }
+
+    void printMySalary() => print('10억');
+
+    void printNowWeather() async {
+      var weatherData = await NowWeather();
+      print(weatherData);
+    }
+
+    printNowWeather();
+    printLunchTime();
+    printMySalary();
+  });
 }
